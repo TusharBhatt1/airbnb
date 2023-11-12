@@ -1,44 +1,54 @@
-import { EmptyState } from '@/components/EmptyState'
-import Image from 'next/image'
-import getListing, { IListingParams } from './actions/getListings'
-import ListingCard from '@/components/listings/ListingCard'
-import getCurrentUser from './actions/getCurrentUser'
+import Container from "postcss/lib/container";
+import ListingCard from "@/components/listings/ListingCard";
+import { EmptyState } from "@/components/EmptyState";
+
+import getListings, { 
+  IListingsParams
+} from "@/app/actions/getListings";
+import getCurrentUser from "@/app/actions/getCurrentUser";
 
 
-interface HomeProps{
-  searchParams : IListingParams
-}
-export default async function Home({
-  searchParams
-}:HomeProps) {
+interface HomeProps {
+  searchParams: IListingsParams
+};
 
-  const listings= await getListing(searchParams)
-  const currentUser = await getCurrentUser()
+const Home = async ({ searchParams }: HomeProps) => {
+  const listings = await getListings(searchParams);
+  const currentUser = await getCurrentUser();
 
-  if(listings && listings.length===0)
-  {
-    return ( <EmptyState
-    showReset/>
-    )
+  if (listings.length === 0) {
+    return (
+     
+        <EmptyState showReset />
+ 
+    );
   }
-  return (
-    <div className="
-     p-5 mt-20 
-     grid 
-     sm:grid-cols-1 
-     md:grid-cols-3
-     lg:grid-cols-4
-     xl:grid-cols-6
-     gap-10" > 
-    {listings && listings.map((listing:any)=>(
-     <ListingCard
-     currentUser={currentUser}
-     key={listing.id}
-     data={listing}
-    />
-    ))}
 
-    
-    </div>
+  return (
+   
+        <div 
+          className="
+            pt-24
+            grid 
+            grid-cols-1 
+            sm:grid-cols-2 
+            md:grid-cols-3 
+            lg:grid-cols-4
+            xl:grid-cols-5
+            2xl:grid-cols-6
+            gap-8
+          "
+        >
+          {listings.map((listing: any) => (
+            <ListingCard
+              currentUser={currentUser}
+              key={listing.id}
+              data={listing}
+            />
+          ))}
+        </div>
+     
   )
 }
+
+export default Home;

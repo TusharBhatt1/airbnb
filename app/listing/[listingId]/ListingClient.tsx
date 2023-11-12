@@ -1,4 +1,4 @@
-'use client';
+"use client"
 
 import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -12,9 +12,10 @@ import { SafeListing, SafeReservation, SafeUser } from "@/types";
 
 
 import { categories } from "@/components/navbar/Categories";
-import ListingHead from "./ListingHead"
-import ListingInfo from "./ListingInfo"
+import ListingHead from "./ListingHead";
+import ListingInfo from "./ListingInfo";
 import ListingReservation from "@/components/listings/ListingReservation";
+
 const initialDateRange = {
   startDate: new Date(),
   endDate: new Date(),
@@ -77,7 +78,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
         toast.success('Listing reserved!');
         setDateRange(initialDateRange);
         router.push('/trips');
-        router.refresh()
       })
       .catch(() => {
         toast.error('Something went wrong.');
@@ -109,7 +109,6 @@ const ListingClient: React.FC<ListingClientProps> = ({
       }
     }
   }, [dateRange, listing.price]);
-
   return ( 
    
       <div 

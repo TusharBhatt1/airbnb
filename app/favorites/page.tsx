@@ -1,30 +1,35 @@
-import React from 'react'
-import getFavorites from '../actions/getFavorites'
-import getCurrentUser from '../actions/getCurrentUser'
-import { EmptyState } from '@/components/EmptyState'
-import FavoritesClient from './FavoritesClient'
-export default async function Favorites() {
 
-    const listings = await getFavorites()
-    const currentUser=await getCurrentUser()
+import EmptyState from "@/app/components/EmptyState";
+import ClientOnly from "@/app/components/ClientOnly";
 
-    if(listings.length===0){ 
-        return(
-       <EmptyState
-       title='Seems like no added favorites'
-       subtitle='No favorites'
-       />
-    )
-    }
+import getCurrentUser from "@/app/actions/getCurrentUser";
+import getFavoriteListings from "@/app/actions/getFavoriteListings";
 
+import FavoritesClient from "./FavoritesClient";
+
+const ListingPage = async () => {
+  const listings = await getFavoriteListings();
+  const currentUser = await getCurrentUser();
+
+  if (listings.length === 0) {
     return (
-        <div className='px-4'>
-        <FavoritesClient
+      <ClientOnly>
+        <EmptyState
+          title="No favorites found"
+          subtitle="Looks like you have no favorite listings."
+        />
+      </ClientOnly>
+    );
+  }
+
+  return (
+    <ClientOnly>
+      <FavoritesClient
         listings={listings}
         currentUser={currentUser}
-        />
-        </div>
-    )
-
-  
+      />
+    </ClientOnly>
+  );
 }
+ 
+export default ListingPage;
