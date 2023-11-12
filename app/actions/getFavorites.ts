@@ -1,7 +1,5 @@
 import prisma from "@/app/libs/prismadb"
 import getCurrentUser from "./getCurrentUser"
-import LoginModal from "@/components/Modals/LoginModal"
-import useLoginModal from "../hooks/useLoginHook"
 import toast from "react-hot-toast"
 
 export default async function GetFavorites() {
