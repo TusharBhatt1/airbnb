@@ -25,6 +25,7 @@ const ListingPage = async () => {
   return (
   
       <FavoritesClient
+        //@ts-ignore
         listings={listings}
         currentUser={currentUser}
       />

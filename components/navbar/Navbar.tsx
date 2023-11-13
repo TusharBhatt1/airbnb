@@ -13,7 +13,7 @@ export default function Navbar({currentUser}:NavbarProps) {
  
   return (   
     <div className='flex flex-col  bg-white'>
-    <div className=' fixed font-bold bg-white w-full z-50 '>
+    <div className=' fixed font-bold bg-white w-full z-20 '>
     <div className='flex shadow-md p-2 items-center justify-between'>
     <Link href="/">  
     <Image 

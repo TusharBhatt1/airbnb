@@ -72,6 +72,7 @@ const Modal: React.FC<ModalProps> = ({
       {showModal && (<div
         className="
           justify-center 
+        
           items-center 
           flex 
           overflow-x-hidden 

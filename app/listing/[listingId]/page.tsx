@@ -11,7 +11,9 @@ interface IParams {
   listingId?: string;
 }
 
-const ListingPage = async ({ params }: { params: IParams }) => {
+export default async function ListingPage(
+  { params }: { params: IParams }
+  ){
 
   const listing = await getListingById(params);
   const reservations = await getReservations(params);
@@ -19,15 +21,16 @@ const ListingPage = async ({ params }: { params: IParams }) => {
 
   if (!listing) {
     return (
-    
+     
         <EmptyState />
-      
+    
     );
   }
 
   return (
-    
+   
       <ListingClient
+      //@ts-ignore
         listing={listing}
         reservations={reservations}
         currentUser={currentUser}
@@ -36,4 +39,3 @@ const ListingPage = async ({ params }: { params: IParams }) => {
   );
 }
  
-export default ListingPage;
