@@ -1,3 +1,5 @@
+export const dynamic = "force-dynamic";
+
 import prisma from "@/app/libs/prismadb";
 export interface IListingsParams {
   userId?: string;
@@ -9,6 +11,7 @@ export interface IListingsParams {
   locationValue?: string;
   category?: string;
 }
+
 
 export default async function getListings(
   params: IListingsParams
