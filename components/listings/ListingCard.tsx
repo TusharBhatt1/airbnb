@@ -67,7 +67,7 @@ onAction
   return (
 
     <div
-    onClick={()=>router.push(`/listing/${data.id}`)}
+    onClick={()=>router.push(`/listings/${data.id}`)}
     className='
     group
     flex justify-between
