@@ -11,7 +11,7 @@ import Button from '../Button'
 
 interface ListingCardProps{
 currentUser?:SafeUser | null
-key:number
+key:number | string
 data:SafeListing
 reservation?:SafeReservation
 actionLabel?:string
