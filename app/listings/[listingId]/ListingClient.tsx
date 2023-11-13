@@ -1,4 +1,4 @@
-"use client"
+'use client';
 
 import axios from "axios";
 import { useCallback, useEffect, useMemo, useState } from "react";
@@ -12,8 +12,8 @@ import { SafeListing, SafeReservation, SafeUser } from "@/types";
 
 
 import { categories } from "@/components/navbar/Categories";
-import ListingHead from "./ListingHead";
-import ListingInfo from "./ListingInfo";
+import ListingHead from "@/components/listings/ListingHead";
+import ListingInfo from "@/components/listings/ListingInfo";
 import ListingReservation from "@/components/listings/ListingReservation";
 
 const initialDateRange = {
@@ -109,6 +109,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
       }
     }
   }, [dateRange, listing.price]);
+
   return ( 
    
       <div 
@@ -140,7 +141,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
               description={listing.description}
               roomCount={listing.roomCount}
               guestCount={listing.guestCount}
-              bathroomCount={listing.bathRoomCount}
+              bathRoomCount={listing.bathRoomCount}
               locationValue={listing.locationValue}
             />
             <div 
