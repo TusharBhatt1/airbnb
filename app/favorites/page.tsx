@@ -3,7 +3,7 @@ import { EmptyState } from "@/components/EmptyState";
 
 
 import getCurrentUser from "@/app/actions/getCurrentUser";
-import getFavorites from "../actions/getFavorites";
+import getFavorites from "../actions/getFavoriteListings";
 
 import FavoritesClient from "./FavoritesClient";
 
@@ -23,7 +23,7 @@ const ListingPage = async () => {
   }
 
   return (
-  
+     
       <FavoritesClient
         //@ts-ignore
         listings={listings}
