@@ -17,7 +17,7 @@ import IntroModal from '@/components/Modals/IntroModal';
 const inter = Nunito({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'AIRBNB',
+  title: 'Rent App',
   description: "AIRBNB CLONE",
 }
 
