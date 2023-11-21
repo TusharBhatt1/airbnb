@@ -18,7 +18,7 @@ export default function Navbar({currentUser}:NavbarProps) {
     <Link href="/">  
     <Image 
     alt="AIRBNB" 
-    src="/images/logo.png" 
+    src="/images/logo.jpg" 
     height={50}
      width={100}/>
     </Link> 
